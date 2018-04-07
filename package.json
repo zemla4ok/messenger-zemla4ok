@@ -1,0 +1,23 @@
+{
+  "name": "@username/messenger-zemla4ok",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zemla4ok/messenger-zemla4ok.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zemla4ok/messenger-zemla4ok/issues"
+  },
+  "homepage": "https://github.com/zemla4ok/messenger-zemla4ok#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
