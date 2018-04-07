@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/zemla4ok/messenger-zemla4ok#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.37.6"
   }
 }
