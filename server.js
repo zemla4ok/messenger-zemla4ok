@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParse = require('body-parser');
@@ -11,7 +13,9 @@ module.exports = (db, config) => {
 
 
     //controllers
-
+    const apiController = require('./controllers/api')(
+        
+    )
 
     //Mounting
     app.use(express.static('public'));

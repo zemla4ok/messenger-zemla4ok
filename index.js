@@ -1,33 +1,13 @@
 'use strict';
 
-const express = require('express');
 const Sequelize = require('sequelize');
-
-const port = process.env.PORT || 3000;
 const config = require('./config_m');
+const db = require('./context')(Sequelize, config);
+const server = require('./server')(db, config);
+const port = process.env.PORT || 3000;
 
-const dbcontext = require('./context/db')
-  (Sequelize, config);
+(async function() {
+  await db.sequelize.sync();
 
-const app = express();
-
-app.get('/', (req, res) =>{
-  dbcontext.rand
-  .findAll({ raw: true })
-  .then((rands) => res.json(rands));
-});
-app.get('/generate', (req, res) => {
-  dbcontext.rand
-    .create({
-      value: Math.random()
-    })
-    .then((rand) => res.json(rand));
-});
-
-dbcontext.sequelize
-  .sync()
-  .then(() => {
-    app.listen(port, () => {
-        console.log(`Running on ${port} port`);
-    });
-  });
+  server.listen(port, () => console.log('Server is running on port ' + port));
+})();

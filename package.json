@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/zemla4ok/messenger-zemla4ok#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "mysql2": "^1.5.3",
     "pg": "^7.4.1",

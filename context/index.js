@@ -1,8 +1,10 @@
 'use strict';
 
 module.exports = (Sequelize, config) => {
-  const options = { host: config.db.host,
+  const options = { 
+    host: config.db.host,
     dialect: config.db.dialect,
+    logging: false,
     //dialectOptions: { ssl: true } 
   };
 
@@ -12,7 +14,7 @@ module.exports = (Sequelize, config) => {
   const User = require('../models/user')(Sequelize, sequelize);
   const Chat = require('../models/chat')(Sequelize, sequelize);
   const Message = require('../models/message')(Sequelize, sequelize);
-  const UserChat = require('../models/user_chat')(Sequelize, sequelize);
+  const UserChat = require('../models/user-chat')(Sequelize, sequelize);
 
   User.hasMany(UserChat, {foreignKey: 'userId'});
   UserChat.belongsTo(User, {constraints: false, foreignKey: 'userId'});  
