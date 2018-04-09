@@ -4,7 +4,7 @@ const express = require('express');
 const Sequelize = require('sequelize');
 
 const port = process.env.PORT || 3000;
-const config = require('./config');
+const config = require('./config_m');
 
 const dbcontext = require('./context/db')
   (Sequelize, config);
