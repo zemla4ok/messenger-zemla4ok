@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = (Sequelize, sequelize) => {
     return sequelize.define('Chat', {
         id: {
