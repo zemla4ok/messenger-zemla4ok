@@ -3,7 +3,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParse = require('body-parser');
-const HTMLRouter = require('./helpers/router');
+const middleware = require('./helpers/middleware');
 //services
 
 
@@ -18,15 +18,16 @@ module.exports = (db, config) => {
     )
 
     //Mounting
-    app.use(express.static('public'));
     app.use(cookieParser());
     app.use(bodyParse.json());
+
+    app.use('/+', middleware);
 
     app.use(express.static(__dirname + '/public/images'));
     app.use(express.static(__dirname + '/public/styles'));
     app.use(express.static(__dirname + '/public/pages'));
 
-    app.use('/api', apiController);
+    app.use('/api/v1', apiController);
 
     return app;
 };
