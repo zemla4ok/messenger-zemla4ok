@@ -8,8 +8,11 @@ module.exports = (Sequelize, config) => {
     //dialectOptions: { ssl: true } 
   };
 
-  const sequelize = new Sequelize(config.db.name,
-    config.db.user, config.db.password, options);
+  const sequelize = new Sequelize(
+    config.db.name,
+    config.db.user,
+    config.db.password,
+    options);
 
   const User = require('../models/user')(Sequelize, sequelize);
   const Chat = require('../models/chat')(Sequelize, sequelize);
