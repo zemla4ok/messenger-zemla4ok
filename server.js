@@ -21,12 +21,16 @@ module.exports = (db, config) => {
     app.use(cookieParser());
     app.use(bodyParse.json());
 
-    app.use('/+', middleware);
+    app.use('/*(api|main)', middleware);
 
     app.use(express.static(__dirname + '/public/images'));
     app.use(express.static(__dirname + '/public/styles'));
     app.use(express.static(__dirname + '/public/pages'));
-
+    
+    app.get('/main/im', (req, res) => {
+        res.sendFile(__dirname + '/public/#/im.html');
+    })
+    
     app.use('/api/v1', apiController);
 
     return app;
