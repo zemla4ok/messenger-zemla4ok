@@ -2,16 +2,16 @@
 
 const CrudController = require('./crud');
 
-class AuthenticationController extends CrudController{
+class AuthenticationController{
     constructor(userService){
        super(userService);
 
-      
+       
 
        this.registerRoutes();
     }
 
-    async
+    
 }
 
 module.exports = (userService) => {
