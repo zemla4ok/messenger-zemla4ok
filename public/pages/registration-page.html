@@ -1,14 +1,86 @@
 <html>
-    <head>
-        <link rel="icon" type="image/png" href="/cat.png"/>
-        <title>
-            Messenger Registration
-        </title>
-    </head>
-    <body>
-        <div>
-            <form>
-            </form>
-        </div>
-    </body>
+
+<head>
+    <link rel="icon" type="image/png" href="/cat.png" />
+    <title>
+        Messenger Registration
+    </title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+    <script type="text/babel">
+            class TextField extends React.Component {
+                constructor(props) {
+                    super(props);
+                    var isValid = this.validate(props.value);
+                    this.state = {value: props.value, holder: props.holder, valid: isValid};
+                    this.onChange = this.onChange.bind(this);
+                }
+                validate(val){
+                    return val.length>2;
+                }
+                onChange(e) {
+                    var val = e.target.value;
+                    var isValid = this.validate(val);
+                    this.setState({value: val, valid: isValid});
+                }
+                render() {
+                    var color = this.state.valid===true?"green":"red";
+                    return <p>
+                        <input type="text" placeholder={this.state.holder} value={this.state.value} onChange={this.onChange} style={{borderColor:color}} />
+                    </p>;
+                }   
+            }  
+            
+            class EmailField extends React.Component {
+                constructor(props) {
+                    super(props);
+                    var isValid = this.validate(props.value);
+                    this.state = {value: props.value, holder: props.holder, valid: isValid};
+                    this.onChange = this.onChange.bind(this);
+                }
+                validate(val){
+                    let emailPattern = "^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"; 
+                    return val.match(emailPattern);
+                }
+            }
+        
+            class UserForm extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.handleSubmit = this.handleSubmit.bind(this);
+                }
+                handleSubmit(e) {
+                    e.preventDefault();
+                    var name = this.refs.nameField.state.value;
+                    var age = this.refs.ageField.state.value;
+                    if(this.refs.nameField.state.valid && this.refs.ageField.state.valid){
+                        alert("Имя: " + name + " Возраст: " + age);
+                    }
+                }
+            
+                render() {
+                    return (
+                        <form onSubmit={this.handleSubmit}>
+                            <TextField value="" ref="nameField" holder="Name"/>
+                            <TextField value="" ref="surnameField" holder="Surname"/>
+                            <TextField value="" ref="login" holder="Login"/>
+                            <input type="button" value="registrate" />
+                        </form>
+                    );
+                }
+            }
+            ReactDOM.render(
+                <UserForm />,
+                document.getElementById("app")
+            )
+        </script>
+</body>
+
 </html>
