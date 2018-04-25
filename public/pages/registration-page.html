@@ -18,7 +18,7 @@
             class TextField extends React.Component {
                 constructor(props) {
                     super(props);
-                    var isValid = this.validate(props.value);
+                    let isValid = this.validate(props.value);
                     this.state = {value: props.value, holder: props.holder, valid: isValid};
                     this.onChange = this.onChange.bind(this);
                 }
@@ -27,12 +27,12 @@
                     return expression.test(val);
                 }
                 onChange(e) {
-                    var val = e.target.value;
-                    var isValid = this.validate(val);
+                    let val = e.target.value;
+                    let isValid = this.validate(val);
                     this.setState({value: val, valid: isValid});
                 }
                 render() {
-                    var color = this.state.valid===true?"green":"red";
+                    let color = this.state.valid===true?"green":"red";
                     return <p>
                         <label>{this.state.holder}</label> <br/>
                         <input type="text" placeholder={this.state.holder} value={this.state.value} onChange={this.onChange} style={{borderColor:color}} />
@@ -43,7 +43,7 @@
             class EmailField extends React.Component {
                 constructor(props) {
                     super(props);
-                    var isValid = this.validate(props.value);
+                    let isValid = this.validate(props.value);
                     this.state = {value: props.value, valid: isValid};
                     this.onChange = this.onChange.bind(this);
                 }
@@ -52,8 +52,8 @@
                     return expression.test(val);
                 }
                 onChange(e) {
-                    var val = e.target.value;
-                    var isValid = this.validate(val);
+                    let val = e.target.value;
+                    let isValid = this.validate(val);
                     this.setState({value: val, valid: isValid});
                 }
                 render() {
@@ -68,7 +68,7 @@
             class PasswordField extends React.Component {
                 constructor(props) {
                     super(props);
-                    var isValid = this.validate(props.value);
+                    let isValid = this.validate(props.value);
                     this.state = {value: props.value, valid: isValid};
                     this.onChange = this.onChange.bind(this);
                 }
@@ -122,8 +122,8 @@
                 }
                 /*handleSubmit(e) {
                     e.preventDefault();
-                    var name = this.refs.nameField.state.value;
-                    var age = this.refs.ageField.state.value;
+                    let name = this.refs.nameField.state.value;
+                    let age = this.refs.ageField.state.value;
                     if(this.refs.nameField.state.valid && this.refs.ageField.state.valid){
                         alert("Имя: " + name + " Возраст: " + age);
                     }
