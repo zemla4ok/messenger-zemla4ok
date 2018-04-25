@@ -23,7 +23,8 @@
                     this.onChange = this.onChange.bind(this);
                 }
                 validate(val){
-                    return val.length>2;
+                    let expression = new RegExp(/(^)[a-zA-Z]+($)/);
+                    return expression.test(val);
                 }
                 onChange(e) {
                     var val = e.target.value;
@@ -33,6 +34,7 @@
                 render() {
                     var color = this.state.valid===true?"green":"red";
                     return <p>
+                        <label>{this.state.holder}</label> <br/>
                         <input type="text" placeholder={this.state.holder} value={this.state.value} onChange={this.onChange} style={{borderColor:color}} />
                     </p>;
                 }   
@@ -42,28 +44,90 @@
                 constructor(props) {
                     super(props);
                     var isValid = this.validate(props.value);
-                    this.state = {value: props.value, holder: props.holder, valid: isValid};
+                    this.state = {value: props.value, valid: isValid};
                     this.onChange = this.onChange.bind(this);
                 }
                 validate(val){
-                    let emailPattern = "^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"; 
-                    return val.match(emailPattern);
+                    let expression = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+                    return expression.test(val);
                 }
+                onChange(e) {
+                    var val = e.target.value;
+                    var isValid = this.validate(val);
+                    this.setState({value: val, valid: isValid});
+                }
+                render() {
+                    var color = this.state.valid===true?"green":"red";
+                    return <p>
+                        <label>E-mail</label><br/>
+                        <input type="text" placeholder="e-mail" value={this.state.value} onChange={this.onChange} style={{borderColor:color}} />
+                    </p>;
+                }   
+            }
+
+            class PasswordField extends React.Component {
+                constructor(props) {
+                    super(props);
+                    var isValid = this.validate(props.value);
+                    this.state = {value: props.value, valid: isValid};
+                    this.onChange = this.onChange.bind(this);
+                }
+                validate(val){
+                    let expression = new RegExp(/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})/);
+                    return expression.test(val);                    
+                }
+                onChange(e) {
+                    let val = e.target.value;
+                    let isValid = this.validate(val);
+                    this.setState({value: val, valid: isValid});
+                }
+                render() {
+                    let color = this.state.valid===true?"green":"red";
+                    return <p>
+                        <label>Password</label><br/>
+                        <input type="password" placeholder="password" id="passField" value={this.state.value} onChange={this.onChange} style={{borderColor:color}} />
+                    </p>;
+                }  
+            }
+
+            class RepeatingPasswordField extends React.Component {
+                constructor(props) {
+                    super(props);
+                    var isValid = false;
+                    this.state = {value: props.value, valid: isValid, password: ''};
+                    this.onChange = this.onChange.bind(this);
+                }
+                validate(val){
+                    let passField = document.getElementById("passField");
+                    return val === passField.value ? true : false;
+                }
+                onChange(e) {
+                    let val = e.target.value;
+                    let isValid = this.validate(val);
+                    this.setState({value: val, valid: isValid});
+                }
+                render() {
+                    let color = this.state.valid===true?"green":"red";
+                    return <p>
+                        <label>Repeat password</label><br/>
+                        <input type="password" placeholder="repeat password" value={this.state.value} onChange={this.onChange} style={{borderColor:color}} />
+                    </p>;
+                }  
             }
         
             class UserForm extends React.Component {
                 constructor(props) {
                     super(props);
-                    this.handleSubmit = this.handleSubmit.bind(this);
+                    //this.handleSubmit = this.handleSubmit.bind(this);
                 }
-                handleSubmit(e) {
+                /*handleSubmit(e) {
                     e.preventDefault();
                     var name = this.refs.nameField.state.value;
                     var age = this.refs.ageField.state.value;
                     if(this.refs.nameField.state.valid && this.refs.ageField.state.valid){
                         alert("Имя: " + name + " Возраст: " + age);
                     }
-                }
+                }*/
             
                 render() {
                     return (
@@ -71,7 +135,10 @@
                             <TextField value="" ref="nameField" holder="Name"/>
                             <TextField value="" ref="surnameField" holder="Surname"/>
                             <TextField value="" ref="login" holder="Login"/>
-                            <input type="button" value="registrate" />
+                            <EmailField value="" ref="email"/>
+                            <PasswordField value="" ref="pass"/>
+                            <RepeatingPasswordField value="" ref="pass2"/>
+                            <input type="submit" value="registrate" />
                         </form>
                     );
                 }
