@@ -5,7 +5,7 @@ module.exports = (Sequelize, config) => {
     host: config.db.host,
     dialect: config.db.dialect,
     logging: false,
-    //dialectOptions: { ssl: true } 
+    dialectOptions: { ssl: true } 
   };
 
   const sequelize = new Sequelize(
