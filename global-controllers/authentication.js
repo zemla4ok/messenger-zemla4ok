@@ -2,7 +2,7 @@
 
 const CrudController = require('./crud');
 
-class AuthenticationController{
+class AuthenticationController extends CrudController{
     constructor(userService){
        super(userService);
 

@@ -6,15 +6,21 @@ const bodyParse = require('body-parser');
 const middleware = require('./helpers/middleware');
 const errors = require('./helpers/error');
 //services
-
+const UserService = require('./services/user');
 
 module.exports = (db, config) => {
     const app = express();
     //services
-
+    const userService = new UserService(
+        db.user,
+        errors
+    )
 
     //controllers
     const error = require('./global-controllers/error');
+    const registration = require('./global-controllers/registration')(
+        userService
+    );
     const apiController = require('./controllers/api')(
         
     )
@@ -34,8 +40,9 @@ module.exports = (db, config) => {
         res.sendFile(__dirname + '/public/#/im.html');
     })
     
+    app.use('/', registration);
     app.use('/api/v1', apiController);
-    app.use('/api/v1', error);
+    app.use('/', error);
 
     return app;
 };
