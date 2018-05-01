@@ -97,19 +97,30 @@
                     this.state = {value: props.value};                    
                     this.handleRegistrate = this.handleRegistrate.bind(this);
                     this.validate = this.validate.bind(this);
+                    this.getForm = this.getForm.bind(this);
                 }
-                handleRegistrate(e) {
+                getForm(){
+                    return {
+                        name: this.refs.nameField.state.value,
+                        surname: this.refs.surnameField.state.value,
+                        login: this.refs.login.state.value,
+                        password: this.refs.pass.state.value
+                    }
+                }
+                handleRegistrate() {
                     if(this.validate())
                         alert('non corect data')
                     else{
-                        let val = getDataFromForm(this.refs);
+                        let val = this.getForm();
+                        console.log(val);
                         this.setState({value: val});
-                        axios.post('http://localhost:3000/credentials-check', this.state.value)
+                        axios.post('http://localhost:3000/registration', this.state.value)
                             .then((response) => {
-                               
+                                alert('ok');
+                                window.location.replace("http://localhost:3000/login-page.html");
                             })
                             .catch((error) => {
-                                console.log(error);
+                                alert(error);
                             })
                     }
                 }

@@ -13,13 +13,13 @@ module.exports = (Sequelize, sequelize) => {
         surname: {
             type: Sequelize.STRING
         },
-       /* login: {
-            type: Sequelize.STRING
-        },*/
-        email: {
+        login: {
             type: Sequelize.STRING
         },
-        passwort: {
+        /*email: {
+            type: Sequelize.STRING
+        },*/
+        password: {
             type: Sequelize.STRING
         }
     })

@@ -6,21 +6,24 @@ class RegistrationController extends CrudController {
     constructor(userService) {
         super(userService);
 
-        this.registrationCredentialsCheck = this.registrationCredentialsCheck.bind(this);
+        this.registration = this.registration.bind(this);
 
         this.routes = {
-            '/credentials-check': [
-                { method: 'post', cb: this.registrationCredentialsCheck }
+            '/registration': [
+                { method: 'post', cb: this.registration }
             ]
         }
 
         this.registerRoutes();
     }
 
-    async registrationCredentialsCheck(req, res) {
-        let data = await this.service.checkCredentials(req.body);
-        console.log(data);
-        res.json(data);
+    async registration(req, res) {
+        let isCreated = await this.service.checkCredentials(req.body);
+        let user;
+        if(isCreated){
+            user = await this.service.create(req.body);
+        }
+        res.json(user);
     }
 
 }

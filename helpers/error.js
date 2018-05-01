@@ -24,5 +24,11 @@ module.exports = {
         code: 'wrong_credentials', status: 404 },
     accessDenied: {
         message: 'Access denied',
-        code: 'access_denied', status: 403 }
+        code: 'access_denied', status: 403 },
+    validationError: {
+        message: 'Wrong input data',
+        code: 'wrong_data', status: 400 },
+    loginExist: {
+        message: 'This login is exists',
+        code: 'login_exists', status: 400 }
 }

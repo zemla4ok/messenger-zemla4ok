@@ -2,6 +2,7 @@
 
 const CrudService = require('./crud');
 const Sequelize = require('sequelize');
+const validator = require('../helpers/validator');
 
 class UserService extends CrudService{
     constructor(repository, errors){
@@ -10,12 +11,21 @@ class UserService extends CrudService{
 
     async checkCredentials(data){
         let users = await this.repository.findAll({
-            where: {[Sequelize.Op.or]: [{login: data.login}, {email: data.email}]}
+            where: {login: data.login}
         })
         if(users.length != 0)
-            throw this.errors.wrongCredentials;
+            throw this.errors.loginExist;
         else
             return true;
+    }
+
+    async create(data){
+        console.log(data);
+        const validRes = validator.check('user', data);
+        if(validRes.error)
+            throw this.errors.validationError;
+        else
+            return super.create(data);
     }
 }
 
