@@ -21,6 +21,9 @@ module.exports = (db, config) => {
     const registration = require('./global-controllers/registration')(
         userService
     );
+    const authController = require('./global-controllers/authentication')(
+        userService
+    );
     const apiController = require('./controllers/api')(
         
     )
@@ -29,7 +32,7 @@ module.exports = (db, config) => {
     app.use(cookieParser());
     app.use(bodyParse.json());
 
-    app.use('/*(api|main)', middleware);
+    app.use('/*(api|main)', authController);
 
     app.use(express.static(__dirname + '/public/images'));
     app.use(express.static(__dirname + '/public/styles'));

@@ -12,10 +12,10 @@ middleware.use('/*', async (req, res, next) => {
     if(userToken){
         next();
     }
-    else{
+    else{ 
         res.redirect('/login-page.html');
     }
-})
+});
 
 middleware.get('/#/im', (req, res) => {
     res.sendStatus(200);
