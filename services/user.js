@@ -22,7 +22,7 @@ class UserService extends CrudService{
 
     async create(data){
         console.log(data);
-        //data.password = bcrypt.hashSync(data.password);
+        data.password = bcrypt.hashSync(data.password, 8);
         const validRes = validator.check('user', data);
         
         if(validRes.error)
@@ -32,7 +32,7 @@ class UserService extends CrudService{
     }
 
     async readByLogin(login){
-        const user = await this.findOne({
+        const user = await this.repository.findOne({
             where: {
                 login: login
             }

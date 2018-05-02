@@ -10,16 +10,17 @@ class AuthenticationController extends CrudController{
     constructor(userService){
        super(userService);
 
+        this.login = this.login.bind(this);
+
        this.routes = {
-            '/*': [
+            '/*(api|main)/*': [
                 { method: 'use', cb: this.authenticate }
             ],
             '/login': [
                 { method: 'post', cb: this.login }
             ]
         }
-
-       this.registerRoutes();
+        this.registerRoutes();
     }
 
     async authenticate(req, res, next){
@@ -34,19 +35,19 @@ class AuthenticationController extends CrudController{
     }
 
     async login(req, res){
-        const user = await this.repository.readByLogin(req.body.login);
+        const user = await this.service.readByLogin(req.body.login);
         if(!user || !bcrypt.compareSync(req.body.password, user.password))
-            res.json({code: 400, message: 'Invalid credentials'});
+            throw this.service.errors.wrongCredentials;
         else{
             const token = jwt.sign({
-                'id': user.login
+                'login': user.login
             }, 
-            'secret',
+            'zemla4ok',
             {
                 expiresIn: 10*60    
             });
             res.cookie(authCookie, token);
-            res.redirect('http://localhost:3000/main/im');
+            res.sendStatus(200);
         }
     }
 }

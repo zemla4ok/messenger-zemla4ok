@@ -25,7 +25,6 @@ class RegistrationController extends CrudController {
         }
         res.json(user);
     }
-
 }
 
 module.exports = (userService) => {

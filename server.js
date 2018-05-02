@@ -32,7 +32,7 @@ module.exports = (db, config) => {
     app.use(cookieParser());
     app.use(bodyParse.json());
 
-    app.use('/*(api|main)', authController);
+    app.use('/', authController);
 
     app.use(express.static(__dirname + '/public/images'));
     app.use(express.static(__dirname + '/public/styles'));
@@ -40,12 +40,13 @@ module.exports = (db, config) => {
     app.use(express.static(__dirname + '/public/scripts'));
 
     app.get('/main/im', (req, res) => {
+        
         res.sendFile(__dirname + '/public/#/im.html');
     })
     
     app.use('/', registration);
     app.use('/api/v1', apiController);
-    app.use('/', error);
+    //app.use('/', error);
 
     return app;
 };

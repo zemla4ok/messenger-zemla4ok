@@ -1,23 +1,104 @@
 <html>
-    <head>
-        <link rel="icon" type="image/png" href="/cat.png"/>
-        <title>
-            Messenger Login
-        </title>
-        <script src="login-scripts.js"></script>
-    </head>
-    <body>
-        <div>
-            <form>
-                <input type="text" id="login" placeholder="login"/><br>
-                <input type="password" id="password" placeholder="password"/><br>
-                <input type="button" onclick="authenticate()" value="LOG IN"/><br>
-            </form>
-        </div>
-        <div>
-            <form method="GET" action="registration-page.html">
-                <input type="submit" value="registration"/>
-            </form>
-        </div>
-    </body>
+
+<head>
+    <link rel="icon" type="image/png" href="/cat.png" />
+    <title>
+        Login
+    </title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <div>
+        <form method="GET" action="registration-page.html">
+            <input type="submit" value="registration"/>
+        </form>
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <script src="/registration-scripts.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/babel">
+            class TextField extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {value: props.value, holder: props.holder};
+                    this.onChange = this.onChange.bind(this);
+                }
+                onChange(e) {
+                    let val = e.target.value;
+                    this.setState({value: val});
+                }
+                render() {
+                    return <p>
+                        <label>{this.state.holder}</label> <br/>
+                        <input type="text" placeholder={this.state.holder} value={this.state.value} onChange={this.onChange} />
+                    </p>;
+                }   
+            }  
+
+            class PasswordField extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {value: props.value};
+                    this.onChange = this.onChange.bind(this);
+                }
+                onChange(e) {
+                    let val = e.target.value;
+                    this.setState({value: val});
+                }
+                render() {
+                    return <p>
+                        <label>Password</label><br/>
+                        <input type="password" placeholder="password" onChange={this.onChange} value={this.state.value}/>
+                    </p>;
+                }  
+            }             
+        
+            class UserForm extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {value: props.value};                    
+                    this.handleAuth = this.handleAuth.bind(this);
+                    this.getForm = this.getForm.bind(this);
+                }
+                getForm(){
+                    return {
+                        login: this.refs.login.state.value,
+                        password: this.refs.pass.state.value
+                    }
+                }
+                handleAuth() {
+                    let val = this.getForm();
+                    console.log(val);
+                    this.setState({value: val});
+                    axios.post('http://localhost:3000/login', this.state.value)
+                        .then((response) => {
+                            alert('ok');
+                            window.location.replace("http://localhost:3000/main/im");
+                        })
+                        .catch((error) => {
+                            alert(error);
+                        })
+                }
+
+                render() {
+                    return (
+                        <form>
+                            <TextField value="" ref="login" holder="Login"/>
+                            <PasswordField value="" ref="pass"/>
+                            <input type="button" onClick={this.handleAuth} value="LOG IN" />
+                        </form>
+                    );
+                }
+            }
+            ReactDOM.render(
+                <UserForm />,
+                document.getElementById("app")
+            )
+        </script>
+</body>
+
 </html>
