@@ -9,7 +9,7 @@ class RegistrationController extends CrudController {
         this.registration = this.registration.bind(this);
 
         this.routes = {
-            '/registration': [
+            '/registration': [ 
                 { method: 'post', cb: this.registration }
             ]
         }

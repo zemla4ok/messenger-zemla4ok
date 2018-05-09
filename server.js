@@ -43,7 +43,6 @@ module.exports = (db, config) => {
     })
 
     app.get('/login', (req, res) => {
-        console.log('qwe')
         res.sendFile(__dirname + '/public/pages/login-page.html');
     })
     
