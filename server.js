@@ -36,14 +36,21 @@ module.exports = (db, config) => {
 
     app.use(express.static(__dirname + '/public/images'));
     app.use(express.static(__dirname + '/public/styles'));
-    app.use(express.static(__dirname + '/public/pages'));
     app.use(express.static(__dirname + '/public/scripts'));
 
-    app.get('/main/im', (req, res) => {
-        
-        res.sendFile(__dirname + '/public/#/im.html');
+    app.get('/main/im', (req, res) => {        
+        res.sendFile(__dirname + '/public/pages/im.html');
+    })
+
+    app.get('/login', (req, res) => {
+        console.log('qwe')
+        res.sendFile(__dirname + '/public/pages/login-page.html');
     })
     
+    app.get('/registration', (req, res) => {
+        res.sendFile(__dirname + '/public/pages/registration-page.html');
+    })
+
     app.use('/', registration);
     app.use('/api/v1', apiController);
     //app.use('/', error);

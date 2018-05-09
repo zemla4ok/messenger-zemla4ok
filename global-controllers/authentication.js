@@ -44,7 +44,7 @@ class AuthenticationController extends CrudController{
             }, 
             'zemla4ok',
             {
-                expiresIn: 10*60    
+                expiresIn: 60*60    
             });
             res.cookie(authCookie, token);
             res.sendStatus(200);
