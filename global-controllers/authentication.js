@@ -30,7 +30,7 @@ class AuthenticationController extends CrudController{
             next();
         }
         else{ 
-            res.redirect('/login-page.html');
+            res.redirect('/login');
         }
     }
 
