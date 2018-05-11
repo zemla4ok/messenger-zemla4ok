@@ -36,7 +36,7 @@ class AuthenticationController extends CrudController{
 
     async login(req, res){
         const user = await this.service.readByLogin(req.body.login);
-        if(!user || !bcrypt.compareSync(req.body.password, user.password))
+        if(!bcrypt.compareSync(req.body.password, user.password))
             throw this.service.errors.wrongCredentials;
         else{
             const token = jwt.sign({

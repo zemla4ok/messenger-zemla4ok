@@ -1,10 +1,16 @@
 import { observable, action } from "mobx";
+import axios from 'axios';
 
 class DataStore {
     @observable name;
+    @observable chats;
 
     constructor(){
         this.setName(null);
+    }
+
+    fetchChats(){
+
     }
 
     getName(){

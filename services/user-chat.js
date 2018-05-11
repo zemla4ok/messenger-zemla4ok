@@ -3,11 +3,11 @@
 const CrudService = require('./crud');
 const validator = require('../helpers/validator');
 
-class ChatService extends CrudService{
+class UserChatService extends CrudService{
     constructor(repository, errors){
         super(repository, errors);
     }
 
 }
 
-module.exports = ChatService;
+module.exports = UserChatService;
