@@ -4,6 +4,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParse = require('body-parser');
 const errors = require('./helpers/error');
+
 //services
 const UserService = require('./services/user');
 const ChatService = require('./services/chat');
@@ -30,9 +31,10 @@ module.exports = (db, config) => {
     const registration = require('./global-controllers/registration')(
         userService
     );
-    /*const authController = require('./global-controllers/authentication')(
+    const authController = require('./global-controllers/authentication')(
         userService
-    );*/
+    );
+    const authorisationController = require('./global-controllers/authorisation');
     const apiController = require('./controllers/api')(
         chatService,
         userChatService,
@@ -43,7 +45,9 @@ module.exports = (db, config) => {
     app.use(cookieParser());
     app.use(bodyParse.json());
 
-    //app.use('/', authController);
+    app.use('/', authController);
+    app.use('/', registration);
+    app.use('/api/', authorisationController.ability());
 
     app.use(express.static(__dirname + '/public/images'));
     app.use(express.static(__dirname + '/public/styles'));
@@ -61,9 +65,8 @@ module.exports = (db, config) => {
         res.sendFile(__dirname + '/public/pages/registration-page.html');
     });
 
-    app.use('/', registration);
     app.use('/api/v1', apiController);
-    //app.use('/', error);
+    app.use('/', error);
 
     return app;
 };

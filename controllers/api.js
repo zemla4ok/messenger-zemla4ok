@@ -11,11 +11,18 @@ module.exports = (
 
     //defining cntroller
     const userController = require('./user')(
-        userService
-    )
+        userService,
+        chatService,
+        userChatService
+    );
+
+    const chatController = require('./chat')(
+        chatService
+    );
 
     //defining routers    
     router.use('/users', userController);
+    router.use('/chats', chatController);
 
     return router;
 }

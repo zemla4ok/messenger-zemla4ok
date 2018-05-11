@@ -30,5 +30,8 @@ module.exports = {
         code: 'wrong_data', status: 400 },
     loginExist: {
         message: 'This login is exists',
-        code: 'login_exists', status: 400 }
+        code: 'login_exists', status: 400 },
+    chatExist: {
+        message: 'This chat is exists',
+        code: 'chat_exists', status: 400 },
 }

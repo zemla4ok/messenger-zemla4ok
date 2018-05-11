@@ -1,11 +1,17 @@
 'use strict'
 
 const CrudController = require('./crud');
-const authCookie = '__service_token';
+const { checkAuth } = require('../global-controllers/authentication');
 
 class UserController extends CrudController{
-    constructor(userService){
+    constructor(userService, chatService, userChatService){
         super(userService);
+
+        const chatController = require('./chat')(
+            chatService,
+            userChatService
+        );
+        this.router.use('./:userId', chatController);
 
         this.routes = {
             '/': [
@@ -27,21 +33,39 @@ class UserController extends CrudController{
     }
 
     async delete(req, res){
-        const token = req.cookies[authCookie];
-        let data = await this.service.delete(req.params.login, token);
-        res.json(data);
+        const user = await this.service.readByLogin(req.params.login);
+        const checkValue = await checkAuth(req.ability, 'delete', user);
+        if(checkValue.access){
+            await super.delete(user.id);
+        }
+        else{
+            throw this.service.repository.errors.accessDenied;
+        }
+        res.sendStatus(200);
     }
 
     async update(req, res){
-        const token = req.cookies[authCookie];
-        let data = await this.service.update(req.params.login, token, req.data);
-        res.json(data);
+        const user = await this.service.readByLogin(req.params.login);
+        const checkValue = await checkAuth(req.ability, 'update', user);
+        if(checkValue.access){
+            await super.update(user.id);
+        }
+        else{
+            throw this.service.repository.errors.accessDenied;
+        }
+        res.sendStatus(200);
+    }
+
+    async update(req, res){
+
     }
 }
 
-module.exports = (userService) => {
+module.exports = (userService, chatService, userChatService) => {
     const controller = new UserController(
-        userService
+        userService,
+        chatService,
+        userChatService
     );
     return controller.router;
 };

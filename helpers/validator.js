@@ -6,6 +6,9 @@ const schemas = {
         surname: Joi.string(),
         login: Joi.string(),
         password: Joi.string()
+    }),
+    'chat': Joi.object().keys({
+        name: Joi.string()
     })
 }
 

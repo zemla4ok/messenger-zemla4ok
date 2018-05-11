@@ -10,24 +10,9 @@ class UserService extends CrudService{
         super(repository, errors);
     }
 
-    async update(login, token, data){
-        const userToken = tokens.verifyToken(token);
-        if(userToken.login === login){
-            const user = await this.readByLogin(login);
-            return await super.update(user.id, data);
-        }
-        else
-            throw this.errors.accessDenied;
-    }
-
-    async delete(login, token){
-        const userToken = tokens.verifyToken(token);
-        if(userToken.login === login){
-            const user = await this.readByLogin(login);
-            return await super.delete(user.id);
-        }
-        else
-            throw this.errors.accessDenied;
+    async update(id, data){
+        data.password = bcrypt.hashSync(data.password, 8);
+        return await super.update(id, data);
     }
 
     async checkCredentials(data){
@@ -41,14 +26,13 @@ class UserService extends CrudService{
     }
 
     async create(data){
-        console.log(data);
         data.password = bcrypt.hashSync(data.password, 8);
         const validRes = validator.check('user', data);
         
         if(validRes.error)
             throw this.errors.validationError;
         else
-            return super.create(data);
+            return await super.create(data);
     }
 
     async readByLogin(login){
