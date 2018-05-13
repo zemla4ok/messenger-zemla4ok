@@ -22,10 +22,13 @@ module.exports.ability = () =>
         const name = userToken.login || 'anon';
 
         if(name !== 'anon'){
-            can('delete', 'user', {
+            can('delete', 'User', {
                 login: name
             });
-            can('update', 'user', {
+            can('update', 'User', {
+                login: name
+            });
+            can('create', 'User', { //for creating chat
                 login: name
             });
         }

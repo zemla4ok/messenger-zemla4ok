@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const CrudController = require('../controllers/crud');
 const tokens = require('../helpers/tokens');

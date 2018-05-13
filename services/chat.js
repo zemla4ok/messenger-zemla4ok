@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const CrudService = require('./crud');
 const validator = require('../helpers/validator');
@@ -9,16 +9,14 @@ class ChatService extends CrudService{
     }
 
     async create(data){
+        let item;
         const validRes = validator.check('chat', data);
         if(validRes.error)
             throw this.errors.validationError;
         else{
-            const chats = this.getByName(data.name);
-            if(!chats)
-                throw this.errors.chatExist;
-            else
-                return await super.create(data);
+            item = await super.create(data);
         }
+        return item;
     }
 
     async getByName(name){

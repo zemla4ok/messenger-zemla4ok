@@ -9,6 +9,10 @@ const schemas = {
     }),
     'chat': Joi.object().keys({
         name: Joi.string()
+    }),
+    'user-chat': Joi.object().keys({
+        UserId: Joi.number().integer(),
+        ChatId: Joi.number().integer()
     })
 }
 

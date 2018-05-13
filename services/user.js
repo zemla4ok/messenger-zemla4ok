@@ -11,7 +11,8 @@ class UserService extends CrudService{
     }
 
     async update(id, data){
-        data.password = bcrypt.hashSync(data.password, 8);
+        if(data.password)
+            data.password = bcrypt.hashSync(data.password, 8);
         return await super.update(id, data);
     }
 

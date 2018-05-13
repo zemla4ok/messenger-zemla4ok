@@ -66,7 +66,7 @@ module.exports = (db, config) => {
     });
 
     app.use('/api/v1', apiController);
-    app.use('/', error);
+    //app.use('/', error);
 
     return app;
 };

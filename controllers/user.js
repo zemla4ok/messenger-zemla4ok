@@ -1,7 +1,7 @@
 'use strict'
 
 const CrudController = require('./crud');
-const { checkAuth } = require('../global-controllers/authentication');
+const { checkAuth } = require('./../global-controllers/authorisation');
 
 class UserController extends CrudController{
     constructor(userService, chatService, userChatService){
@@ -11,7 +11,7 @@ class UserController extends CrudController{
             chatService,
             userChatService
         );
-        this.router.use('./:userId', chatController);
+        this.router.use('/:userId/chats', chatController);
 
         this.routes = {
             '/': [
@@ -36,10 +36,10 @@ class UserController extends CrudController{
         const user = await this.service.readByLogin(req.params.login);
         const checkValue = await checkAuth(req.ability, 'delete', user);
         if(checkValue.access){
-            await super.delete(user.id);
+            await this.service.delete(user.id);
         }
         else{
-            throw this.service.repository.errors.accessDenied;
+            throw checkValue.error;
         }
         res.sendStatus(200);
     }
@@ -48,16 +48,12 @@ class UserController extends CrudController{
         const user = await this.service.readByLogin(req.params.login);
         const checkValue = await checkAuth(req.ability, 'update', user);
         if(checkValue.access){
-            await super.update(user.id);
+            await this.service.update(user.id, req.body);
         }
         else{
-            throw this.service.repository.errors.accessDenied;
+            throw checkValue.error;
         }
         res.sendStatus(200);
-    }
-
-    async update(req, res){
-
     }
 }
 

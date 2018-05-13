@@ -19,6 +19,12 @@ module.exports = (Sequelize, config) => {
   const Message = require('../models/message')(Sequelize, sequelize);
   const UserChat = require('../models/user-chat')(Sequelize, sequelize);
 
+  User.belongsToMany(Chat, {through: UserChat});
+  Chat.belongsToMany(User, {through: UserChat});
+  Message.belongsTo(Chat, {constraints: false, foreignKey: 'chatId'});
+  Message.belongsTo(User, {constraints: false, foreignKey: 'userId'});
+  
+  /*
   User.hasMany(UserChat, {foreignKey: 'userId'});
   UserChat.belongsTo(User, {constraints: false, foreignKey: 'userId'});  
   Chat.hasMany(UserChat, {foreignKey: 'chatId'});
@@ -27,6 +33,8 @@ module.exports = (Sequelize, config) => {
   Message.belongsTo(Chat, {constraints: false, foreignKey: 'chatId'});
   User.hasMany(Message, {foreignKey: 'userId'});
   Message.belongsTo(User, {constraints: false, foreignKey: 'userId'});
+*/
+//belongstoMany with throught
 
   return { 
     user: User,
