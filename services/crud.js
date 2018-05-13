@@ -25,7 +25,6 @@ class CrudService{
             limit: limit,
             offset: offset,
             order: [[options.orderField, options.order.toUpperCase()]],
-            raw: true
         });
     }
 

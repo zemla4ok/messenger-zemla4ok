@@ -8,6 +8,8 @@ class ChatService extends CrudService{
         super(repository, errors);
     }
 
+   
+
     async create(data){
         let item;
         const validRes = validator.check('chat', data);
