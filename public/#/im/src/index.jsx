@@ -4,6 +4,6 @@ import ReactDOM from 'react-dom';
 import View from './views/main-view/index.jsx';
 
 ReactDOM.render(
-    <View/>,
+    <View />,
     document.getElementById('app')
-)
+);

@@ -40,9 +40,10 @@ class ChatController extends CrudController{
     }
 
     async create(req, res){
-        let data;
-        data = await this.service.create(req.body);
-        const result = await this.userChatService.create(req.params.userId, data.id);
+        const data = await this.service.create(req.body);
+        const chat = await this.service.read(data.id);
+        const user = await this.userService.read(req.params.userId);
+        const result = await chat.addUser(user);
         res.json(data);
     }
 

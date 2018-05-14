@@ -47,7 +47,7 @@ class AuthenticationController extends CrudController{
                 expiresIn: 60*60    
             });
             res.cookie(authCookie, token);
-            res.sendStatus(200);
+            res.json({userId: user.id});
         }
     }
 }

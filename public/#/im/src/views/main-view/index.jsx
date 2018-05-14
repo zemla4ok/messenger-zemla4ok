@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { observable, action } from "mobx";
 
 import Header from './../header/index.jsx';
 import ChatList from './../chat-list/index.jsx';
@@ -16,22 +17,18 @@ class View extends React.Component {
         })
     }
 
-    componentWillMount(){
-        this.data.getName();
-    }
-
     render() {
-        const {name} =  this.data;
+        const { name, userId } =  this.data;
         const values = {
             userName: name
-        }
+        };
 
         return <div style={{marginLeft:'15%', height:'99%', width:'70%', borderColor:'red', borderStyle: 'solid'}} >
             <Header values={values}/>
-            <ChatList/>
+            <ChatList userId={userId}/>
             <MessageArea/>
             </div>
-    }   
-}  
+    }
+}
 
 export default View;

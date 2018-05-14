@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
         let val = this.getForm();
         axios.post('http://localhost:3000/login', val)
             .then((response) => {
-                window.location = `http://localhost:3000/main/im?login=${val.login}`;
+                window.location = `http://localhost:3000/main/im?login=${val.login}&id=${response.data.userId}`;
             })
             .catch((error) => {
                 alert('error credentials');

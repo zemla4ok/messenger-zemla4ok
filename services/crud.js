@@ -7,7 +7,7 @@ class CrudService{
 
         this.defaults = {
             readChunk: {
-                limit: 10,
+                limit: 100,
                 page: 1,
                 order: 'asc',
                 orderField: 'id'
