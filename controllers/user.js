@@ -4,12 +4,13 @@ const CrudController = require('./crud');
 const { checkAuth } = require('./../global-controllers/authorisation');
 
 class UserController extends CrudController{
-    constructor(userService, chatService){
+    constructor(userService, chatService, messageService){
         super(userService);
 
         const chatController = require('./chat')(
             chatService,
-            userService
+            userService,
+            messageService
         );
         this.router.use('/:userId/chats', chatController);
 
@@ -57,11 +58,11 @@ class UserController extends CrudController{
     }
 }
 
-module.exports = (userService, chatService, userChatService) => {
+module.exports = (userService, chatService, messageService) => {
     const controller = new UserController(
         userService,
         chatService,
-        userChatService
+        messageService
     );
     return controller.router;
 };

@@ -4,8 +4,8 @@ const express = require('express');
 
 module.exports = (
     chatService,
-    userChatService,
-    userService
+    userService,
+    messageService
 ) => {
     const router = express.Router();
 
@@ -13,16 +13,11 @@ module.exports = (
     const userController = require('./user')(
         userService,
         chatService,
-        userChatService
-    );
-
-    const chatController = require('./chat')(
-        chatService
+        messageService,
     );
 
     //defining routers    
     router.use('/users', userController);
-    router.use('/chats', chatController);
 
     return router;
 }

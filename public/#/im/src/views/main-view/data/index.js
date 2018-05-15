@@ -2,20 +2,17 @@ import { observable, action } from "mobx";
 import axios from 'axios';
 
 class DataStore {
-    @observable name;
-    @observable userId;
+    name;
+    userId;
+    values = observable.map({
+        isChoosed: false,
+        chat: {}
+    });
 
     constructor(){
         this.setName(null);
 
-        this.handleResponse = ::this.handleResponse;
-
         this.getName();
-    }
-
-
-    handleResponse(res){
-        this.setUser(res.data);
     }
 
     getName(){
@@ -35,12 +32,26 @@ class DataStore {
         this.setUserId(id);
     }
 
-    @action
+    get isChoosed() {
+        return this.values.get('isChoosed');
+    }
+
+    get chat() {
+        return this.values.get('chat');
+    }
+
+    setChat(value){
+        this.values.set('chat', value);
+    }
+
+    setIsChoosed(value){
+        this.values.set('isChoosed', value);
+    }
+
     setName(val){
         this.name = val;
     }
 
-    @action
     setUserId(val){
         this.userId = val;
     }

@@ -26,7 +26,7 @@ class DataStore {
     fetchChats(){
         this.setIsLoaded(false);
         axios.get(`http://localhost:3000/api/v1/users/${this.userId}/chats`)
-            .then(this.onCompleteFetch)t
+            .then(this.onCompleteFetch)
     }
 
     addChat(chatName){

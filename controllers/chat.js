@@ -4,16 +4,22 @@ const CrudController = require('./crud');
 const { checkAuth } = require('./../global-controllers/authorisation');
 
 class ChatController extends CrudController{
-    constructor(chatService, userService){
-        super(chatService, userService);
+    constructor(chatService, userService, messageService){
+        super(chatService);
 
         this.userService = userService;
         this.addUser = this.addUser.bind(this);
 
+        const messageController = require('./message')(
+            messageService,
+            userService
+        )
+
+        this.router.use('/:chatId/messages', messageController);
+
         this.routes['/:id/adding/:newUserLogin']= [
                 { method: 'post', cb: this.addUser }
-            ]
-        
+            ]        
 
         this.registerRoutes();
     }
@@ -85,10 +91,11 @@ class ChatController extends CrudController{
     }
 }
 
-module.exports = (chatService, userService) => {
+module.exports = (chatService, userService, messageService) => {
     const controller = new ChatController(
         chatService,
-        userService
+        userService,
+        messageService
     );
     return controller.router;
 }

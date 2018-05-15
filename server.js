@@ -8,7 +8,7 @@ const errors = require('./helpers/error');
 //services
 const UserService = require('./services/user');
 const ChatService = require('./services/chat');
-const UserChatService = require('./services/user-chat');
+const MessageService = require('./services/message');
 
 module.exports = (db, config) => {
     const app = express();
@@ -21,8 +21,8 @@ module.exports = (db, config) => {
         db.chat,
         errors
     );
-    const userChatService = new UserChatService(
-        db.userChat,
+    const messageService = new MessageService(
+        db.message,
         errors
     );
 
@@ -37,8 +37,8 @@ module.exports = (db, config) => {
     const authorisationController = require('./global-controllers/authorisation');
     const apiController = require('./controllers/api')(
         chatService,
-        userChatService,
-        userService
+        userService,
+        messageService
     );
 
     //Mounting

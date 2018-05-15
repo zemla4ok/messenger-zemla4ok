@@ -13,8 +13,13 @@ class ChatList extends React.Component {
         });
 
         this.onClick = ::this.onClickHandler;
+        this.onChatItemClick = ::this.onChatItemClickHandler;
 
         this.data.fetchChats();
+    }
+
+    onChatItemClickHandler(chat){
+        this.props.onChatItemClick(chat);
     }
 
     onClickHandler(){
@@ -34,7 +39,7 @@ class ChatList extends React.Component {
                 !isLoaded ?
                     <div style={{marginTop: '40%', marginLeft: '40%'}}>Loading......</div> :
                     <div style={{height: '95%', overflowY: 'auto'}}>
-                        {chats.map(chat => <ChatItem key={chat.id} chat={chat}/>)}
+                        {chats.map(chat => <ChatItem onClick={this.onChatItemClick} key={chat.id} chat={chat}/>)}
                     </div>
             }
         </div>

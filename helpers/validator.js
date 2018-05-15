@@ -11,8 +11,13 @@ const schemas = {
         name: Joi.string()
     }),
     'user-chat': Joi.object().keys({
-        UserId: Joi.number().integer(),
-        ChatId: Joi.number().integer()
+        UserId: Joi.number().integer().positive(),
+        ChatId: Joi.number().integer().positive()
+    }),
+    'message': Joi.object().keys({
+        userId: Joi.number().integer().positive(),
+        chatId: Joi.number().integer().positive(),
+        text: Joi.string()
     })
 }
 
