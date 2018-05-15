@@ -12,7 +12,7 @@ class Header extends React.Component{
         const name = this.props.values.userName;
 
         return <div style={{height:'6%', borderColor:'green', borderStyle: 'solid'}} >
-            Header
+            <div style={{marginTop: '1%', marginLeft: '2%', float: 'left'}}><b>MESSENGER</b></div>
             <InfoButton value={name}/>
             </div>
     }

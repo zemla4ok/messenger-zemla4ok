@@ -36,7 +36,7 @@ class View extends React.Component {
             {
                 !isChoosed ?
                 <EmptyMessageArea/> :
-                <MessageArea chat={chat}/>
+                <MessageArea chat={chat} userId={userId}/>
             }
             </div>
     }

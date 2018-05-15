@@ -15,35 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/views/chat-list/index.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="41" column="75" lean-forward="true" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/main-view/index.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/message-area/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+            <state relative-caret-position="442">
+              <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -51,13 +27,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/message-area/state/data.js">
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/message-area/message-list/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/message-area/chat-footer/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+              <caret line="17" column="96" selection-start-line="17" selection-start-column="96" selection-end-line="17" selection-end-column="96" />
               <folding>
-                <element signature="e#0#42#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/message-area/chat-header/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="42" lean-forward="true" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -80,7 +80,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/views/info-button/data/index.jsx" />
-        <option value="$PROJECT_DIR$/src/views/header/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/info-button/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/chat-list/data/index.js" />
         <option value="$PROJECT_DIR$/src/views/empty-chat-list/index.jsx" />
@@ -88,14 +87,19 @@
         <option value="$PROJECT_DIR$/.babelrc" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/index.jsx" />
-        <option value="$PROJECT_DIR$/src/views/chat-list/state/data.js" />
         <option value="$PROJECT_DIR$/src/views/chat-list/chat-item/index.jsx" />
-        <option value="$PROJECT_DIR$/src/views/chat-list/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/empty-message-area/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/main-view/data/index.js" />
+        <option value="$PROJECT_DIR$/src/views/chat-list/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/chat-list/state/data.js" />
         <option value="$PROJECT_DIR$/src/views/main-view/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/message-area/state/data.js" />
+        <option value="$PROJECT_DIR$/src/views/header/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/message-area/chat-header/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/message-area/chat-list/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/message-area/message-list/index.jsx" />
         <option value="$PROJECT_DIR$/src/views/message-area/index.jsx" />
+        <option value="$PROJECT_DIR$/src/views/message-area/chat-footer/index.jsx" />
       </list>
     </option>
   </component>
@@ -118,7 +122,7 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="23" />
     <option name="y" value="-20" />
     <option name="width" value="1346" />
@@ -153,37 +157,7 @@
               <item name="im" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="chat-list" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="im" type="b2602c69:ProjectViewProjectNode" />
-              <item name="im" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="chat-list" type="462c0819:PsiDirectoryNode" />
-              <item name="state" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="im" type="b2602c69:ProjectViewProjectNode" />
-              <item name="im" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="empty-message-area" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="im" type="b2602c69:ProjectViewProjectNode" />
-              <item name="im" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="main-view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="im" type="b2602c69:ProjectViewProjectNode" />
-              <item name="im" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="main-view" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="message-area" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="im" type="b2602c69:ProjectViewProjectNode" />
@@ -191,6 +165,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="message-area" type="462c0819:PsiDirectoryNode" />
+              <item name="chat-header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="im" type="b2602c69:ProjectViewProjectNode" />
+              <item name="im" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="message-area" type="462c0819:PsiDirectoryNode" />
+              <item name="state" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -231,26 +214,26 @@
       <workItem from="1525978553976" duration="28000" />
       <workItem from="1526274093665" duration="5425000" />
       <workItem from="1526310850782" duration="19746000" />
-      <workItem from="1526360816862" duration="3553000" />
+      <workItem from="1526360816862" duration="8011000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33683000" />
+    <option name="totallyTimeSpent" value="38141000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49800798" visible="true" weight="0.19765739" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.10322108" side_tool="true" weight="0.29411766" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.103953145" side_tool="true" weight="0.35771066" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" sideWeight="0.50199205" side_tool="true" weight="0.17057101" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.89677894" weight="0.35771066" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.8960469" weight="0.35771066" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -386,16 +369,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/info-button/data/index.jsx" />
-    <entry file="file://$PROJECT_DIR$/src/views/header/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/chat-list/data/index.js" />
     <entry file="file://$PROJECT_DIR$/src/views/chat-item/state/data.js" />
     <entry file="file://$PROJECT_DIR$/src/views/empty-chat-list/index.jsx" />
@@ -443,54 +416,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/info-button/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/chat-list/chat-item/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/chat-list/state/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="44" column="4" lean-forward="true" selection-start-line="44" selection-start-column="4" selection-end-line="46" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/main-view/data/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="46" column="16" selection-end-line="59" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/main-view/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/message-area/state/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
@@ -504,20 +433,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/message-area/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/views/chat-list/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        <state relative-caret-position="442">
+          <caret line="41" column="52" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="52" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/chat-list/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/views/chat-list/chat-item/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="41" column="75" lean-forward="true" selection-start-line="41" selection-start-column="75" selection-end-line="41" selection-end-column="75" />
+        <state relative-caret-position="204">
+          <caret line="12" column="31" lean-forward="true" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/chat-list/state/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/main-view/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/message-area/state/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/info-button/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/header/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="72" selection-start-line="14" selection-start-column="72" selection-end-line="14" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/message-area/chat-header/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="42" lean-forward="true" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/message-area/message-list/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/message-area/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/message-area/chat-footer/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="96" selection-start-line="17" selection-start-column="96" selection-end-line="17" selection-end-column="96" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

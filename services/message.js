@@ -8,6 +8,14 @@ class MessageService extends CrudService{
         super(repository);
     }
 
+    async readChunk(data){
+        return await this.repository.findAll({
+            where: {
+                chatId: data.chatId
+            }
+        })
+    }
+
     async create(data){
         const validRes = validator.check('message', data);
         
