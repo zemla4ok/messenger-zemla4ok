@@ -12,7 +12,7 @@ class ChatFooter extends React.Component{
     render(){
 
         return (
-            <div style={{width:'99%', height:'7%', borderColor:'yellow', borderStyle: 'solid'}} >
+            <div style={{width:'100%', height:'7%', borderColor:'yellow', borderStyle: 'solid'}} >
                 <div>
                     <input type="text" placeholder="MESSAGE" style={{height: '100%', width: '80%', float: 'left'}}/>
                     <input type="button" value="SEND MESSAGE" style={{height: '100%', width: '20%'}}/>

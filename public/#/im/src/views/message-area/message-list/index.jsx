@@ -12,7 +12,7 @@ class MessageList extends React.Component{
     render(){
 
         return (
-            <div style={{width:'99%', height:'80%', borderColor:'green', borderStyle: 'solid'}} >
+            <div style={{width:'100%', height:'81%', borderColor:'green', borderStyle: 'solid'}} >
 
             </div>
         )

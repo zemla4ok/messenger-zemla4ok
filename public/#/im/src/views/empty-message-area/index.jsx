@@ -5,7 +5,7 @@ class EmptyMessageArea extends React.Component{
         super(props);
     }
     render(){
-        return <div style={{float:'left', width:'67%', height:'92%', borderColor:'deeppink', borderStyle: 'solid'}} >
+        return <div style={{float:'left', width:'70%', height:'93%', borderColor:'deeppink', borderStyle: 'solid'}} >
             <div style={{marginTop: '45%', marginLeft: '45%'}}><b>Choose the chat</b></div>
         </div>
     }

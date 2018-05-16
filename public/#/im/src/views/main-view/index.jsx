@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { observable, action } from "mobx";
+import { Button } from 'react-bootstrap';
 
 import Header from './../header/index.jsx';
 import ChatList from './../chat-list/index.jsx';

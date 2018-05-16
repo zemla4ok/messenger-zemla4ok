@@ -23,7 +23,7 @@ class MessageArea extends React.Component{
         const { name } = this.props.chat;
 
         return (
-            <div style={{float:'left', width:'67%', height:'92%', borderColor:'deeppink', borderStyle: 'solid'}} >
+            <div style={{float:'left', width:'70%', height:'93%', borderColor:'deeppink', borderStyle: 'solid'}} >
                 {
                     !isLoaded ?
                         <div  style={{marginTop: '45%', marginLeft: '45%'}}>Loading......</div> :
