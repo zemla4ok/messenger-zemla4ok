@@ -7,6 +7,7 @@ class DataStore {
     });
 
     constructor(){
+
     }
 
     get isHide() {

@@ -12,25 +12,44 @@ export default class FormView extends React.Component {
         super(props);
         this.state = {value: props.value, name: props.userName};
 
-        this.validate = this.validate.bind(this);
-        this.getForm = this.getForm.bind(this);
+        this.getFormUpdatePass = ::this.getFormUpdatePass;
+        this.getFormUpdate = ::this.getFormUpdate;
+        this.onInfoUpdate = ::this.onInfoUpdateHandler;
+        this.onPassUpdate = ::this.onPassUpdateHandler;
     }
-    getForm(){
+
+    getFormUpdate(){
         return {
             name: this.refs.nameField.state.value,
             surname: this.refs.surnameField.state.value,
+        }
+    }
+
+    getFormUpdatePass(){
+        return {
             password: this.refs.pass.state.value
         }
     }
 
-
-
-    validate(){
-        if(this.refs.nameField.state.valid && this.refs.surnameField.state.valid &&
-            this.refs.pass.state.valid && this.refs.pass2.state.valid)
-            return false;
+    onInfoUpdateHandler(){
+        if(this.refs.nameField.state.valid && this.refs.surnameField.state.valid){
+            const data = this.getFormUpdate();
+            axios.put(`http://localhost:3000/api/v1/users/${this.state.name}`, data)
+                .then(result => alert('Successfully updated'));
+        }
         else
-            return true;
+            alert('input correct data');
+    }
+
+    onPassUpdateHandler(){
+        if(this.refs.pass.state.valid && this.refs.pass2.state.valid &&
+            this.refs.pass.state.valid === this.refs.pass2.state.valid){
+            const data = this.getFormUpdatePass();
+            axios.put(`http://localhost:3000/api/v1/users/${this.state.name}`, data)
+                .then(result => alert('Successfully updated'));
+        }
+        else
+            alert('input correct data');
     }
 
     render() {
@@ -38,10 +57,10 @@ export default class FormView extends React.Component {
             <form>
                 <TextField ref="nameField" holder="Name" />
                 <TextField ref="surnameField" holder="Surname"/>
-                <Button bsStyle="info">Update info</Button>
+                <Button bsStyle="info" onClick={this.onInfoUpdate}>Update info</Button>
                 <PasswordField ref="pass"/>
                 <RepeatingPasswordField ref="pass2"/>
-                <Button bsStyle="info">Update password</Button>
+                <Button bsStyle="info" onClick={this.onPassUpdate}>Update password</Button>
             </form>
         );
     }

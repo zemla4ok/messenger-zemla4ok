@@ -20,7 +20,7 @@ class MessageArea extends React.Component{
     }
     render(){
         const { isLoaded } = this.data;
-        const { name } = this.props.chat;
+        const { userId, chat } = this.props;
 
         return (
             <div style={{float:'left', width:'70%', height:'93%', borderColor:'deeppink', borderStyle: 'solid'}} >
@@ -28,7 +28,7 @@ class MessageArea extends React.Component{
                     !isLoaded ?
                         <div  style={{marginTop: '45%', marginLeft: '45%'}}>Loading......</div> :
                         <div>
-                            <Header chatName={name}/>
+                            <Header chat={chat} userId={userId}/>
                             <MessageList/>
                             <ChatFooter/>
                         </div>

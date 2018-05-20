@@ -45,11 +45,23 @@ class ChatController extends CrudController{
                 flag = true;
         }
         let messages;
+        let result = [];
         if(!flag)
             throw this.service.errors.accessDenied;
         else
+        {
             messages = await this.service.readChunk(data);
-        res.json(messages);
+            for(let i = 0; i < messages.length; i++){
+                let user = await this.userService.read(messages[i].userId);
+                result.push({
+                    message: messages[i],
+                    userName: user.name,
+                    userSurname: user.surname,
+                    userLogin: user.login
+                });
+            }
+        }
+        res.json(result);
     }
 
     async read(req, res){
