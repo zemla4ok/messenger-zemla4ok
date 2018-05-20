@@ -66,8 +66,21 @@ module.exports = (db, config) => {
         res.sendFile(__dirname + '/public/pages/registration-page.html');
     });
 
+    app.get('/', (req, res) => {
+        res.redirect('http://localhost:3000/main/im');
+    })
+
+    app.get('/help', (req, res) => {
+        res.sendFile(__dirname + '/public/pages/index.html');        
+    })
+
+    app.post('/logout', (req, res) => {
+        res.cookie('__service_token', '');
+        res.redirect('http://localhost:3000/login');
+    })
+
     app.use('/api/v1', apiController);
-    //app.use('/', error);
+    app.use('/', error);
 
     return app;
 };

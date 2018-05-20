@@ -26,6 +26,7 @@ class AuthenticationController extends CrudController{
     async authenticate(req, res, next){
         const token = req.cookies[authCookie];
         const userToken = tokens.verifyToken(token);
+        if(userToken == '') res.redirect('/login');
         if(userToken){
             next();
         }

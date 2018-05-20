@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap-modal';
+import axios from 'axios';
 
 import DataState from './state/data.js';
 import FormUpdate from '../form-update/index.jsx';
@@ -16,6 +17,12 @@ class Header extends React.Component{
 
         this.onHide = ::this.onHideHandler;
         this.onClick = ::this.onClickHandler;
+        this.onLogOut = ::this.onLogOutHandler;
+    }
+
+    onLogOutHandler(){
+        axios.post('http://localhost:3000/logout')
+            .then(() => document.location = "http://localhost:3000/login")
     }
 
     onClickHandler(){
@@ -50,6 +57,7 @@ class Header extends React.Component{
                     <Modal.Body>
                         <FormUpdate userName={name}/>
                     </Modal.Body>
+                    <Button onClick={this.onLogOut} bsStyle="danger">LOG OUT</Button>
                 </Modal>
                 </div>
             </div>

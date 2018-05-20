@@ -38,6 +38,7 @@ class LoginForm extends React.Component {
                 <input type="button" onClick={this.handleAuth} value="LOG IN" />                
             </form>
             <RedirectButton/>
+            <a href='http://localhost:3000/help'>api</a>
             </div>
         );
     }

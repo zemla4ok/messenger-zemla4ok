@@ -17,7 +17,7 @@ class ChatItem extends React.Component {
         const { chat } = this.props;
 
         return (
-            <div className="chat-item" onClick={this.onClick} style={{borderRadius: '7px', borderColor:'blue', borderStyle: 'solid', margin: '5px', height: '30px', textAlign: 'center'}}>
+            <div className="chat-item card" onClick={this.onClick} style={{borderRadius: '7px', borderColor:'blue', borderStyle: 'solid', margin: '5px', height: '30px', textAlign: 'center'}}>
                 <b>{chat.name}</b>
             </div>
         );
