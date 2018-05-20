@@ -11,26 +11,21 @@ class MessageArea extends React.Component{
     constructor(props){
         super(props);
 
-        Object.assign(this, {
-            data: new DataStore(props.userId, props.chat.id)
-        });
-
-        this.data.setIsLoaded(false);
-        this.data.fetchMessages();
     }
+
     render(){
-        const { isLoaded } = this.data;
-        const { userId, chat } = this.props;
+        const { isLoaded, messages } = this.props;
+        const { userId, chat, update } = this.props;
 
         return (
-            <div style={{float:'left', width:'70%', height:'93%', borderColor:'deeppink', borderStyle: 'solid'}} >
+            <div style={{float:'left', width:'70%', height:'93%', borderColor:'blue', borderStyle: 'solid'}} >
                 {
                     !isLoaded ?
                         <div  style={{marginTop: '45%', marginLeft: '45%'}}>Loading......</div> :
                         <div>
                             <Header chat={chat} userId={userId}/>
-                            <MessageList/>
-                            <ChatFooter/>
+                            <MessageList messages={messages}/>
+                            <ChatFooter chat={chat} userId={userId} update={update}/>
                         </div>
                 }
             </div>

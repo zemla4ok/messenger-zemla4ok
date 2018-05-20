@@ -9,6 +9,8 @@ export default class TextField extends React.Component {
         this.onChange = this.onChange.bind(this);
     }
     validate(val){
+        if(!val) return false;
+        if(val.length < 1) return false;
         let expression = new RegExp(/(^)[a-zA-Z]+($)/);
         return expression.test(val);
     }

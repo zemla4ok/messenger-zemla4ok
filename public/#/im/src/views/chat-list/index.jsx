@@ -35,7 +35,7 @@ class ChatList extends React.Component {
         return   (
         <div style={{float:'left', height:'93%', width:'30%', borderColor:'blue', borderStyle: 'solid'}} >
             <input id="new-chat-name" type="text" placeholder="new chat name" style={{width: '74%', height: '30px', float: 'left'}}/>
-            <Button bsStyle="info" onClick={this.onClick} style={{width: '25%', height: '30px'}}>create</Button>
+            <Button bsStyle="primary" onClick={this.onClick} style={{width: '25%', height: '30px'}}>create</Button>
             {
                 !isLoaded ?
                     <div style={{marginTop: '40%', marginLeft: '40%'}}>Loading......</div> :

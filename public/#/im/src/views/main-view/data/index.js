@@ -4,8 +4,10 @@ import axios from 'axios';
 class DataStore {
     name;
     userId;
+    messages = observable([]);
     values = observable.map({
         isChoosed: false,
+        isLoaded: false,
         chat: {}
     });
 
@@ -13,6 +15,17 @@ class DataStore {
         this.setName(null);
 
         this.getName();
+        this.onCompleteFetchMessages = ::this.onCompleteFetchMessagesHandler;
+    }
+
+    onCompleteFetchMessagesHandler(result){
+        this.setMessages(result.data);
+        this.setIsLoaded(true);
+    }
+
+    fetchMessages(){
+        axios.get(`http://localhost:3000/api/v1/users/${this.userId}/chats/${this.chat.id}/messages`)
+            .then(this.onCompleteFetchMessages);
     }
 
     getName(){
@@ -40,6 +53,10 @@ class DataStore {
         return this.values.get('chat');
     }
 
+    get isLoaded() {
+        return this.values.get('isLoaded');
+    }
+
     setChat(value){
         this.values.set('chat', value);
     }
@@ -48,12 +65,20 @@ class DataStore {
         this.values.set('isChoosed', value);
     }
 
+    setIsLoaded(value){
+        this.values.set('isLoaded', value);
+    }
+
     setName(val){
         this.name = val;
     }
 
     setUserId(val){
         this.userId = val;
+    }
+
+    setMessages(val){
+        this.messages = val.reverse();
     }
 }
 

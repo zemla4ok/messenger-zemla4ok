@@ -50,14 +50,16 @@ export default class FormView extends React.Component {
 
     render() {
         return (
-            <form>
-                <TextField value="dima" ref="nameField" holder="Name"/>
-                <TextField value="kot" ref="surnameField" holder="Surname"/>
-                <TextField value="kot" ref="login" holder="Login"/>
-                <PasswordField value="qwQW12!@" ref="pass"/>
-                <RepeatingPasswordField value="qwQW12!@" ref="pass2"/>
-                <input type="button" onClick={this.handleRegistrate} value="registrate" />
-            </form>
+            <div style={{textAlign: 'center', marginTop: '10%'}}>
+                <form>
+                    <TextField ref="nameField" holder="Name"/>
+                    <TextField ref="surnameField" holder="Surname"/>
+                    <TextField ref="login" holder="Login"/>
+                    <PasswordField ref="pass"/>
+                    <RepeatingPasswordField ref="pass2"/>
+                    <input type="button" onClick={this.handleRegistrate} value="registrate" />
+                </form>
+            </div>
         );
     }
 }

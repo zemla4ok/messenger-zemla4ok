@@ -12,6 +12,7 @@ const MessageService = require('./services/message');
 
 module.exports = (db, config) => {
     const app = express();
+    
     //services
     const userService = new UserService(
         db.user,

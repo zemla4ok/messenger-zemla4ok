@@ -46,12 +46,12 @@ class MessageAreaHeader extends React.Component{
         const { isHide, isLoaded, user } = this.data;
 
         return (
-            <div style={{width:'100%', height:'12%', borderColor:'yellow', borderStyle: 'solid'}} >
-                <div  style={{width: '100%', borderColor:'blue', borderStyle: 'dashed'}}>{chat.name}</div>
+            <div style={{width:'100%', height:'12%', borderColor:'blue', borderStyle: 'solid'}} >
+                <div  style={{width: '100%', borderBottom: 'solid blue', paddingLeft: '5px'}}>{chat.name}</div>
                 <div>
                     <input id="new-user-login" type="text" placeholder="user login" style={{height: '30px', width: '40%', float: 'left', marginTop: '5px'}}/>
-                    <Button onClick={this.onAddBtnCick} bsStyle="info" style={{height: '30px', marginLeft: '5px', marginTop: '5px'}}>add to chat</Button>
-                    <Button onClick={this.onClickInfo} bsStyle="info" style={{height: '30px', marginLeft: '5px', marginTop: '5px'}}>get info</Button>
+                    <Button onClick={this.onAddBtnCick} bsStyle="primary" style={{height: '30px', marginLeft: '5px', marginTop: '5px'}}>add to chat</Button>
+                    <Button onClick={this.onClickInfo} bsStyle="primary" style={{height: '30px', marginLeft: '5px', marginTop: '5px'}}>get info</Button>
                 </div>
                 <Modal show={isHide} onHide={this.onHide}>
                     <Modal.Header>

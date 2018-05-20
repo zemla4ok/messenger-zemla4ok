@@ -21,23 +21,25 @@ class View extends React.Component {
     }
 
     onChatItemClickHandler(chat){
+        this.data.setIsLoaded(false);
         this.data.setChat(chat);
         this.data.setIsChoosed(true);
+        this.data.fetchMessages();
     }
 
     render() {
-        const { name, userId, isChoosed, chat } =  this.data;
+        const { name, userId, isChoosed, chat, isLoaded, messages } =  this.data;
         const values = {
             userName: name
         };
 
-        return <div style={{marginLeft:'15%', height:'99%', width:'70%', borderColor:'red', borderStyle: 'solid'}} >
+        return <div style={{marginLeft:'15%', height:'99%', width:'70%', borderColor:'blue', borderStyle: 'solid', borderRadius:'8px'}} >
             <Header values={values}/>
             <ChatList userId={userId} onChatItemClick={this.onChatItemClick}/>
             {
                 !isChoosed ?
                 <EmptyMessageArea/> :
-                <MessageArea chat={chat} userId={userId}/>
+                <MessageArea chat={chat} userId={userId} isLoaded={isLoaded} messages={messages} update={this.onChatItemClick}/>
             }
             </div>
     }

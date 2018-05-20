@@ -31,7 +31,7 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={{textAlign: 'center', marginTop: '10%'}}>
             <form>
                 <TextField value="" ref="login" holder="Login"/>
                 <PasswordField value="" ref="pass"/>
